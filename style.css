@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #FFAB04;
+    color: white;
+    background-image: url("images/cs2-mid.svg");
+    background-repeat: no-repeat;
+    background-position: center 50vh;
+    padding: 32px;
+}
+
+header {
+    font-size: 32px;
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.match {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line {
+    flex-grow: 1;
+    border-top: 2px solid #1E202F;
+}
+
+h1 {
+    padding: 10px;
+}
+
+.card.de_train::before {
+    background-image: url("images/de_train.jpg");
+}
+
+.card.de_mirage::before {
+    background-image: url("images/de_mirage.jpg");
+}
