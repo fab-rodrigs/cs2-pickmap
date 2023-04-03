@@ -37,10 +37,196 @@ h1 {
     padding: 10px;
 }
 
-.card.de_train::before {
-    background-image: url("images/de_train.jpg");
+/* === Cards === */
+
+/* Define as propriedades do container dos cards */
+.picks-container {
+    display: grid; /* utiliza grid para organizar os elementos */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* define as colunas do grid com o tamanho mínimo de 200px e o máximo de 1fr, permitindo que a largura dos cards se adapte à tela */
+    gap: 2rem; /* define a margem entre os elementos */
+    max-width: 1280px; /* define a largura máxima do container */
+    margin: 0 auto; /* centraliza o container horizontalmente */
 }
 
+/* Define as propriedades do card */
+.card {
+    border-radius: 10px; /* define o raio do arredondamento da borda */
+    cursor: pointer; /* define o cursor como ponteiro */
+    overflow: hidden; /* esconde o que ultrapassar os limites do card */
+    position: relative; /* define a posição como relativa */
+    min-height: 350px; /* define a altura mínima do card */
+}
+
+/* Define as propriedades do pseudo-elemento ::before do card */
+.card::before {
+    background-position: center; /* define a posição do fundo como centralizada */
+    background-size: cover; /* define o tamanho do fundo como preenchendo todo o espaço disponível */
+    content: ""; /* define o conteúdo do pseudo-elemento */
+    height: 100%; /* define a altura como 100% do card */
+    left: 0; /* define a posição da esquerda como 0 */
+    position: absolute; /* define a posição como absoluta */
+    top: 0; /* define a posição do topo como 0 */
+    width: 100%; /* define a largura como 100% do card */
+    z-index: -1; /* define o z-index como -1 para ficar atrás do conteúdo do card */
+}
+
+/* Define as propriedades do card quando passa o cursor sobre ele */
+.card:hover {
+    border: 6px solid #E22859; /* adiciona uma borda com a cor #E22859 */
+}
+
+/* Define as propriedades do elemento .check quando passa o cursor sobre o card */
+.card:hover .check {
+    opacity: 1; /* torna o elemento .check opaco com opacity 1 */
+}
+
+/* Define as propriedades do elemento .accept quando passa o cursor sobre o card */
+.card:hover .accept {
+    opacity: 1; /* torna o elemento .accept opaco com opacity 1 */
+}
+
+/* Define as propriedades do pseudo-elemento ::before do card com a classe .de_train */
+.card.de_train::before {
+    background-image: url("images/de_train.jpg"); /* define a imagem de fundo do pseudo-elemento com a imagem de "de_train.jpg" */
+}
+
+/* Define as propriedades do pseudo-elemento ::before do card com a classe .de_mirage */
 .card.de_mirage::before {
-    background-image: url("images/de_mirage.jpg");
+    background-image: url("images/de_mirage.jpg"); /* define a imagem de fundo do pseudo-elemento com a imagem de "de_mirage.jpg" */
+}
+
+/*=======================================*/
+/* Definição da classe .accept, que será usada para o botão "Aceitar" */
+.accept {
+    /* Cor de fundo */
+    background-color: #E22859;
+    /* Fonte a ser usada */
+    font-family: Anton;
+    /* Altura */
+    height: 40px;
+    /* Posição à esquerda do elemento pai */
+    left: 0;
+    /* Opacidade, inicialmente escondido */
+    opacity: 0;
+    /* Posição absoluta */
+    position: absolute;
+    /* Posição no topo do elemento pai */
+    top: 0;
+    /* Efeito de transição de opacidade, duração de 0.3s, aceleração suave */
+    transition: opacity 0.3s ease-in-out;
+    /* Largura */
+    width: 100%;
+    /* Elementos filhos serão exibidos em uma linha */
+    display: flex;
+    /* Alinhamento do conteúdo ao centro verticalmente */
+    align-items: center;
+    /* Alinhamento do conteúdo ao centro horizontalmente */
+    justify-content: center;
+    /* Tamanho da fonte */
+    font-size: 24px;
+    /* Espaçamento entre letras */
+    letter-spacing: 1px;
+}
+
+/* Definição da classe .check, que será usada para o ícone de "check" */
+.check {
+    /* Alinhamento do conteúdo ao centro verticalmente */
+    align-items: center;
+    /* Cor de fundo */
+    background-color: #E22859;
+    /* Raio do círculo, para ficar um formato arredondado */
+    border-radius: 50%;
+    /* Exibição dos filhos em linha */
+    display: flex;
+    /* Tamanho da fonte */
+    font-size: 42px;
+    /* Altura */
+    height: 60px;
+    /* Alinhamento do conteúdo ao centro horizontalmente */
+    justify-content: center;
+    /* Posição à esquerda do elemento pai */
+    left: 50%;
+    /* Opacidade, inicialmente escondido */
+    opacity: 0;
+    /* Posição absoluta */
+    position: absolute;
+    /* Posição no meio do elemento pai */
+    top: 50%;
+    /* Transformação para ajustar a posição do elemento em relação ao centro */
+    transform: translate(-50%, -50%);
+    /* Efeito de transição de opacidade, duração de 0.3s, aceleração suave */
+    transition: opacity 0.3s ease-in-out;
+    /* Largura */
+    width: 60px;
+}
+
+/* Definição da classe .check i, que será usada para o ícone de "check" */
+.check i {
+    /* Cor do ícone */
+    color: white;
+}
+
+/* Define a classe .map-name que contém informações sobre o nome do mapa */
+.map-name {
+    bottom: 0; /* define a posição inferior do elemento em relação ao seu contêiner pai */
+    font-family: Inter; /* define a família de fontes usada no elemento */
+    font-weight: 700; /* define o peso da fonte do elemento */
+    left: 50%; /* define a posição esquerda do elemento em relação ao seu contêiner pai */
+    opacity: 1; /* define a opacidade do elemento */
+    position: absolute; /* define a posição do elemento como absoluta */
+    text-align: center; /* define o alinhamento do texto dentro do elemento */
+    transform: translateX(-50%); /* define uma transformação de translação horizontal para centralizar o elemento */
+    transition: opacity 0.3s ease-in-out; /* define uma transição suave de opacidade do elemento */
+    width: 100%; /* define a largura do elemento */
+}
+
+/* Define a classe .map-name h2 para o cabeçalho do nome do mapa */
+.map-name h2 {
+    color: white; /* define a cor do texto */
+    font-size: 2rem; /* define o tamanho da fonte */
+    margin: 0; /* define a margem do elemento */
+    padding-bottom: 10px; /* define o preenchimento inferior do elemento */
+    text-shadow: 1px 1px #000; /* define uma sombra de texto para o elemento */
+}
+
+/* Define o estilo de um elemento com a classe .selected antes de ser selecionado */
+.selected::before {
+    filter: grayscale(100%); /* define um filtro para tornar a imagem em preto e branco */
+}
+
+/* Define o estilo de um elemento com a classe .selected após ser selecionado */
+.selected {
+    border: 6px solid #E22859; /* define uma borda sólida com largura 6px e cor #E22859 */
+    cursor: not-allowed; /* define o ponteiro do mouse como "não permitido" */
+    overflow: hidden; /* define o comportamento do conteúdo que excede os limites do elemento */
+}
+
+/* Define o estilo de um elemento com a classe .selected antes de ser selecionado */
+.selected::before {
+    filter: grayscale(100%); /* define um filtro para tornar a imagem em preto e branco */
+}
+
+/* Define o estilo de um elemento com as classes .selected .accept e .selected .check após ser selecionado */
+.selected .accept, .selected .check {
+    opacity: 1; /* define a opacidade do elemento como 1, tornando-o visível */
+}
+
+/* Define o estilo de um elemento com a classe .picked após ser selecionado */
+.picked {
+    border: 6px solid #1EB720; /* define uma borda sólida com largura 6px e cor #1EB720 */
+}
+
+/* Define o estilo de um elemento com as classes .card .picked .disable-hover:hover após ser selecionado */
+.card.picked.disable-hover:hover {
+    border: 6px solid #1EB720; /* define uma borda sólida com largura 6px e cor #1EB720 */
+}
+
+/* Define o estilo de um elemento com as classes .card .picked .disable-hover:hover .check após ser selecionado */
+.card.picked.disable-hover:hover .check {
+    opacity: 0; /* define a opacidade do elemento como 0, tornando-o invisível */
+}
+
+/* Define o estilo de um elemento com as classes .card .picked .disable-hover:hover .check após ser aceito*/
+.card.picked.disable-hover:hover .accept {
+    opacity: 0; /* define a opacidade do elemento como 0, tornando-o invisível */
 }
